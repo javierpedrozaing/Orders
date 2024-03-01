@@ -11,7 +11,7 @@ using Orders.Backend.Data;
 namespace Orders.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240228003953_AddCountriesEntity")]
+    [Migration("20240229235208_AddCountriesEntity")]
     partial class AddCountriesEntity
     {
         /// <inheritdoc />
@@ -42,7 +42,7 @@ namespace Orders.Backend.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("MyProperty");
+                    b.ToTable("Countries");
                 });
 #pragma warning restore 612, 618
         }

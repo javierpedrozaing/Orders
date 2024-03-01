@@ -11,7 +11,7 @@ namespace Orders.Backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MyProperty",
+                name: "Countries",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
@@ -20,12 +20,12 @@ namespace Orders.Backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MyProperty", x => x.id);
+                    table.PrimaryKey("PK_Countries", x => x.id);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MyProperty_Name",
-                table: "MyProperty",
+                name: "IX_Countries_Name",
+                table: "Countries",
                 column: "Name",
                 unique: true);
         }
@@ -34,7 +34,7 @@ namespace Orders.Backend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MyProperty");
+                name: "Countries");
         }
     }
 }
