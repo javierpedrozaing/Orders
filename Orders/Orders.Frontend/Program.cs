@@ -12,5 +12,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://
 // configuramos la inyección del repositorio
 builder.Services.AddScoped<IRepository, Repository>(); // Notacion diamante porque tambien es un genérico
 
+builder.Services.AddSweetAlert2();
+
 await builder.Build().RunAsync();
 
