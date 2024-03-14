@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.Web;
+﻿using CurrieTechnologies.Razor.SweetAlert2;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Orders.Frontend;
 using Orders.Frontend.Repositories;
