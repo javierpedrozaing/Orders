@@ -18,7 +18,9 @@ namespace Orders.Backend.Respositories.Implementations
             _entity = _context.Set<T>(); // represent entity to modify
         }
 
-        public async Task<ActionResponse<T>> AddAsync(T entity)
+
+        // virtual significa que son metodos que se pueden sobreescribir
+        public virtual async Task<ActionResponse<T>> AddAsync(T entity)
         {
             _context.Add(entity);
 
@@ -39,7 +41,7 @@ namespace Orders.Backend.Respositories.Implementations
         }
 
 
-        public async Task<ActionResponse<T>> DeleteAsync(int id)
+        public virtual async Task<ActionResponse<T>> DeleteAsync(int id)
         {
             var row = await _entity.FindAsync(id);
 
@@ -71,7 +73,7 @@ namespace Orders.Backend.Respositories.Implementations
             }
         }
 
-        public async Task<ActionResponse<T>> GetAsync(int id)
+        public virtual async Task<ActionResponse<T>> GetAsync(int id)
         {
             var row = await _entity.FindAsync(id);
 
@@ -92,7 +94,7 @@ namespace Orders.Backend.Respositories.Implementations
 
         }
 
-        public async Task<ActionResponse<IEnumerable<T>>> GetAsync()
+        public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync()
         {
             return new ActionResponse<IEnumerable<T>>
             {
@@ -101,7 +103,7 @@ namespace Orders.Backend.Respositories.Implementations
             };
         }
 
-        public async Task<ActionResponse<T>> UpdateAsync(T entity)
+        public virtual async Task<ActionResponse<T>> UpdateAsync(T entity)
         {
             _context.Update(entity);
 

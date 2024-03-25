@@ -3,20 +3,29 @@ using Orders.Backend.Data;
 using Orders.Backend.Respositories.Implementations;
 using Orders.Backend.Respositories.Interfaces;
 using Orders.Backend.UnitOfWork.Implementations;
+using Orders.Backend.UnitOfWork.Interfaces;
 using Orders.Backend.UnitsOfWork.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder
+    .Services
+    .AddControllers()
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=DockerConnection"));
 builder.Services.AddScoped(typeof(IGenericRespository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IGenericUnitOfWork<>), typeof(GenericUnitOfWork<>));
-builder.Services.AddTransient<SeeDB>();
+
+builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
+builder.Services.AddScoped<ICountriesUnitOfWork, CountriesUnitOfWork>();
+
+builder.Services.AddTransient<SeedDb>();
+
 
 var app = builder.Build();
 
@@ -29,7 +38,7 @@ async void SeedData(WebApplication app)
 
     using (var scope = scopeFactory!.CreateScope())
     {
-        var service = scope.ServiceProvider.GetService<SeeDB>();
+        var service = scope.ServiceProvider.GetService<SeedDb>();
         service!.SeedAsync().Wait();
     }
 }
