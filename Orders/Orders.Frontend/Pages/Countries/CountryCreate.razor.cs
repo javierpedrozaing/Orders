@@ -2,13 +2,14 @@
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Orders.Frontend.Repositories;
+using Orders.Frontend.Shared;
 using Orders.Shared.Entities;
 
 namespace Orders.Frontend.Pages.Countries
 {
 	public partial class CountryCreate
 	{
-		private CountryForm? countryForm;
+		private FormWithName<Country>? countryForm;
 
 		private Country country = new();
 
@@ -37,7 +38,7 @@ namespace Orders.Frontend.Pages.Countries
 				Toast = true,
 				Position = SweetAlertPosition.BottomEnd,
 				ShowConfirmButton = true,
-				Timer = 300
+				Timer = 3000
 			});
             await toast.FireAsync(icon: SweetAlertIcon.Success, message: "País creado con éxito");
         }
