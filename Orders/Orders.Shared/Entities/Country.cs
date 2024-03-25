@@ -5,7 +5,7 @@ namespace Orders.Shared.Entities
 {
 	public class Country : IEntityWithName
 	{
-		public int id { get; set; }
+		public int Id { get; set; }
 
 		[Display(Name="País")]
 		[MaxLength(100, ErrorMessage = "El campo {0} no puede tener mas de {1} caracteres")]

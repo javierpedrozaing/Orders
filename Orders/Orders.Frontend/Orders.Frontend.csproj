@@ -22,12 +22,14 @@
     <None Remove="Repositories\" />
     <None Remove="Pages\Countries\" />
     <None Remove="Pages\Categories\" />
+    <None Remove="Pages\States\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
     <Folder Include="Pages\Countries\" />
     <Folder Include="Pages\Countries\" />
     <Folder Include="Pages\Categories\" />
+    <Folder Include="Pages\States\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Orders.Shared\Orders.Shared.csproj">

@@ -20,7 +20,7 @@ namespace Orders.Backend.Respositories.Implementations
             var country = await _context.Countries
                .Include(c => c.States)
                .ThenInclude(s => s.Cities)
-               .FirstOrDefaultAsync(c => c.id == id);
+               .FirstOrDefaultAsync(c => c.Id == id);
 
             if (country == null)
             {

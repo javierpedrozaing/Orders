@@ -23,6 +23,7 @@ namespace Orders.Backend.Data
             // indice compuesto
             modelBuilder.Entity<City>().HasIndex(x => new { x.StateId, x.Name }).IsUnique();
             modelBuilder.Entity<State>().HasIndex(x => new { x.CountryId, x.Name }).IsUnique();
+            DisableCascadingDelete(modelBuilder);
         }
 
 
