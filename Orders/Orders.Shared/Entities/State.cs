@@ -7,7 +7,7 @@ namespace Orders.Shared.Entities
 {
 	public class State : IEntityWithName
 	{
-        public int id { get; set; }
+        public int Id { get; set; }
         public int CountryId { get; set; } // foreing key
 
         [Display(Name = "Departamento / Estado")]
