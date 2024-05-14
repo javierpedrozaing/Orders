@@ -15,6 +15,7 @@ namespace Orders.Shared.Entities
         public string Name { get; set; } = null!;
 
         public State? State { get; set; } // relacion uno a muchos con estados
+        public ICollection<User>? Users { get; set; }
     }
 }
 
